@@ -1,15 +1,15 @@
 const fs = require("fs");
 
-function readFileAsync() {
+function readFileAsync(url) {
   return new Promise((res, rej) => {
-    fs.readFile("input.txt", "utf-8", (err, data) => {
+    fs.readFile(url, "utf-8", (err, data) => {
       if (err) rej(err);
       res(data);
     });
   });
 }
 
-readFileAsync()
+readFileAsync('input.txt')
   .then((data) => {
     let array = data.toString().split("\n");
     let repeat = true;
